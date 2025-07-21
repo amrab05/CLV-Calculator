@@ -1,36 +1,57 @@
-/* CLV Calculator - style.css (v1.1 - Full UI) */
-:root {
-    --bg-main: #f4f7f9; --bg-container: #ffffff; --text-dark: #2d3748;
-    --text-light: #718096; --accent-green: #38a169; --accent-green-hover: #2f855a;
-    --logo-purple: #4c3c7a; --border-color: #e2e8f0; --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; --shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-family); background-color: var(--bg-main); color: var(--text-dark); line-height: 1.6; }
-header { background-color: var(--bg-container); padding: 1.25rem 2rem; border-bottom: 1px solid var(--border-color); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: space-between; }
-.logo-text-main { font-size: 1.75rem; font-weight: 700; color: var(--logo-purple); }
-.logo-text-branding { font-size: 1rem; font-weight: 500; color: var(--text-light); }
-main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-#calculator-section { background-color: var(--bg-container); padding: 2.5rem; border-radius: 8px; box-shadow: var(--shadow); }
-h1 { font-size: 2.25rem; text-align: center; margin-bottom: 0.5rem; }
-.subtitle { text-align: center; color: var(--text-light); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-#clv-form { display: flex; flex-direction: column; gap: 1.5rem; }
-.input-group { display: flex; flex-direction: column; }
-.input-group label { margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark); }
-.input-group input { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem; }
-.input-group input:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 2px rgba(56, 161, 105, 0.2); }
-button { padding: 0.85rem; font-size: 1.1rem; font-weight: bold; color: white; background-color: var(--accent-green); border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
-button:hover { background-color: var(--accent-green-hover); }
-#results-container { text-align: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px dashed var(--border-color); }
-#results-container h2 { font-size: 1.5rem; color: var(--text-light); font-weight: 500; margin-bottom: 0.5rem; }
-#clv-result { font-size: 3.5rem; font-weight: 700; color: var(--accent-green); }
-.insights-box { margin-top: 1.5rem; padding: 1rem; background-color: #f7fafc; border-radius: 6px; border: 1px solid var(--border-color); }
-.insights-box a { color: var(--accent-green); font-weight: bold; text-decoration: none; display: block; margin-top: 0.5rem; }
-.insights-box a:hover { text-decoration: underline; }
-footer { text-align: center; padding: 2rem 1rem; margin-top: 2rem; color: var(--text-light); font-size: 0.9rem; }
-@media (max-width: 768px) { .logo-text-branding { display: none; } }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLV Calculator - AI Advisors Group</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container-left">
+            <span class="logo-text-main">CLV Calculator™</span>
+        </div>
+        <div class="branding-container-right">
+            <span class="logo-text-branding">Powered by AI Advisors Group™</span>
+        </div>
+    </header>
+
+    <main>
+        <section id="calculator-section">
+            <h1>Calculate Customer Lifetime Value (CLV)</h1>
+            <p class="subtitle">Understand the long-term revenue potential of your customers. Enter your metrics below to get an instant CLV calculation.</p>
+            
+            <form id="clv-form">
+                <div class="input-group">
+                    <label for="avg-purchase-value">Average Purchase Value ($)</label>
+                    <input type="number" id="avg-purchase-value" placeholder="e.g., 50" required>
+                </div>
+                <div class="input-group">
+                    <label for="purchase-frequency">Purchase Frequency (per year)</label>
+                    <input type="number" id="purchase-frequency" placeholder="e.g., 4" required>
+                </div>
+                <div class="input-group">
+                    <label for="customer-lifespan">Customer Lifespan (in years)</label>
+                    <input type="number" id="customer-lifespan" placeholder="e.g., 5" required>
+                </div>
+                <button type="submit" id="calculate-btn">Calculate CLV</button>
+            </form>
+
+            <div id="results-container" style="display: none;">
+                <h2>Your Customer Lifetime Value is:</h2>
+                <p id="clv-result">$0.00</p>
+                <div class="insights-box">
+                    <p><strong>Insight:</strong> A single customer with these metrics is worth <strong id="insight-value">$0.00</strong> to your business over their lifetime. Protecting this value is the core of the Anti-Churn Doctrine.</p>
+                    <a href="https://compass.aiadvisorsgroup.co" target="_blank">See how to protect your CLV with our free Complaint Compass tool →</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2025 AI Advisors Group. Built with Purpose.</p>
+        <p>© 2024 AI Advisors Group. Built with purpose.</p>
     </footer>
 
 </body>

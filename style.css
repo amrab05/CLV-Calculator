@@ -23,8 +23,8 @@ button:hover { background-color: var(--accent-green-hover); }
 #results-container { text-align: center; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px dashed var(--border-color); }
 #results-container h2 { font-size: 1.5rem; color: var(--text-light); font-weight: 500; margin-bottom: 0.5rem; }
 #clv-result { font-size: 3.5rem; font-weight: 700; color: var(--accent-green); }
-.insights-box { margin-top: 1.5rem; padding: 1rem; background-color: #f7fafc; border-radius: 6px; border: 1px solid var(--border-color); }
+.insights-box { margin-top: 1.5rem; padding: 1.5rem; background-color: #f7fafc; border-radius: 6px; border: 1px solid var(--border-color); }
 .insights-box a { color: var(--accent-green); font-weight: bold; text-decoration: none; display: block; margin-top: 0.5rem; }
 .insights-box a:hover { text-decoration: underline; }
 footer { text-align: center; padding: 2rem 1rem; margin-top: 2rem; color: var(--text-light); font-size: 0.9rem; }
-@media (max-width: 768px) { .logo-text-branding { display: none; } } I
+@media (max-width: 768px) { .logo-text-branding { display: none; } }
