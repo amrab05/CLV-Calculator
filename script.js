@@ -1,6 +1,5 @@
 // CLV Calculator - script.js (v1.2 - Final with Email Engine)
 document.addEventListener('DOMContentLoaded', () => {
-    // UI Elements
     const clvForm = document.getElementById('clv-form');
     const avgPurchaseValueInput = document.getElementById('avg-purchase-value');
     const purchaseFrequencyInput = document.getElementById('purchase-frequency');
@@ -10,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalClvOutput = document.getElementById('original-clv-result');
     const valueLostOutput = document.getElementById('value-lost-result');
     const adjustedClvOutput = document.getElementById('adjusted-clv-result');
-    
-    // Lead Gen UI Elements
     const leadCaptureSection = document.getElementById('lead-capture-section');
     const emailReportForm = document.getElementById('email-report-form');
     const leadNameInput = document.getElementById('lead-name-input');
@@ -45,13 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateAndDisplay();
     });
 
-    // Add event listeners for real-time calculation
     avgPurchaseValueInput.addEventListener('input', calculateAndDisplay);
     purchaseFrequencyInput.addEventListener('input', calculateAndDisplay);
     customerLifespanInput.addEventListener('input', calculateAndDisplay);
     churnRiskSelect.addEventListener('change', calculateAndDisplay);
 
-    // --- NEW: Event Listener for Email Form Submission ---
     emailReportForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const leadName = leadNameInput.value.trim();
@@ -65,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sendReportButton.textContent = 'Sending...';
 
         try {
-            // Gather the report data from the screen
             const reportData = {
                 originalClv: originalClvOutput.textContent,
                 valueLost: valueLostOutput.textContent,
