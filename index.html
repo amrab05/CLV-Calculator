@@ -3,56 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLV Calculator - AI Advisors Group</title>
+    <title>CLV & Churn Impact Calculator - AI Advisors Group</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-
     <header>
-        <div class="logo-container-left">
-            <span class="logo-text-main">CLV Calculator™</span>
-        </div>
-        <div class="branding-container-right">
-            <span class="logo-text-branding">Powered by AI Advisors Group™</span>
-        </div>
+        <div class="logo-container-left"><span class="logo-text-main">CLV Calculator™</span></div>
+        <div class="branding-container-right"><span class="logo-text-branding">Powered by AI Advisors Group™</span></div>
     </header>
-
     <main>
         <section id="calculator-section">
-            <h1>Calculate Customer Lifetime Value (CLV)</h1>
-            <p class="subtitle">Understand the long-term revenue potential of your customers. Enter your metrics below to get an instant CLV calculation.</p>
-            
+            <h1>How Much Revenue is a Single Complaint Putting at Risk?</h1>
+            <p class="subtitle">First, calculate your base CLV. Then, use the Churn Impact Simulator to see the financial cost of inaction.</p>
             <form id="clv-form">
-                <div class="input-group">
-                    <label for="avg-purchase-value">Average Purchase Value ($)</label>
-                    <input type="number" id="avg-purchase-value" placeholder="e.g., 50" required>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="avg-purchase-value">Avg. Purchase Value ($)</label>
+                        <input type="number" id="avg-purchase-value" placeholder="50" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="purchase-frequency">Purchases Per Year</label>
+                        <input type="number" id="purchase-frequency" placeholder="4" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="customer-lifespan">Customer Lifespan (Years)</label>
+                        <input type="number" id="customer-lifespan" placeholder="5" required>
+                    </div>
                 </div>
                 <div class="input-group">
-                    <label for="purchase-frequency">Purchase Frequency (per year)</label>
-                    <input type="number" id="purchase-frequency" placeholder="e.g., 4" required>
+                    <label for="churn-risk-select">Churn Impact Simulator</label>
+                    <select id="churn-risk-select">
+                        <option value="0">No Risk - Calculate Base CLV</option>
+                        <option value="0.05">Low Risk (e.g., Minor issue, fast reply)</option>
+                        <option value="0.25">Medium Risk (e.g., Billing error, slow reply)</option>
+                        <option value="0.50">High Risk (e.g., Unresolved complaint)</option>
+                    </select>
                 </div>
-                <div class="input-group">
-                    <label for="customer-lifespan">Customer Lifespan (in years)</label>
-                    <input type="number" id="customer-lifespan" placeholder="e.g., 5" required>
-                </div>
-                <button type="submit" id="calculate-btn">Calculate CLV</button>
+                <button type="submit" id="calculate-btn">Calculate Financial Impact</button>
             </form>
-
             <div id="results-container" style="display: none;">
-                <h2>Your Customer Lifetime Value is:</h2>
-                <p id="clv-result">$0.00</p>
-                <div class="insights-box">
-                    <p><strong>Insight:</strong> A single customer with these metrics is worth <strong id="insight-value">$0.00</strong> to your business over their lifetime. Protecting this value is the core of the Anti-Churn Doctrine.</p>
-                    <a href="https://compass.aiadvisorsgroup.co" target="_blank">See how to protect your CLV with our free Complaint Compass tool →</a>
+                <div class="results-grid">
+                    <div class="result-box">
+                        <h2>Original CLV</h2>
+                        <p id="original-clv-result" class="original-value">$0.00</p>
+                    </div>
+                    <div class="result-box">
+                        <h2>Value at Risk</h2>
+                        <p id="value-lost-result" class="lost-value">$0.00</p>
+                    </div>
+                    <div class="result-box">
+                        <h2>Adjusted CLV</h2>
+                        <p id="adjusted-clv-result" class="adjusted-value">$0.00</p>
+                    </div>
                 </div>
+            </div>
+            <div id="lead-capture-section" style="display: none;">
+                <h3>Get Your Full Churn Impact Report</h3>
+                <form id="email-report-form">
+                    <input type="text" id="lead-name-input" name="name" autocomplete="given-name" placeholder="First Name (Optional)">
+                    <input type="email" id="lead-email-input" name="email" required autocomplete="email" placeholder="Your Email (Required)">
+                    <button type="submit" id="send-report-button">Send My Report →</button>
+                </form>
             </div>
         </section>
     </main>
-
     <footer>
-        <p>© 2024 AI Advisors Group. Built with purpose.</p>
+        <p>© 2025 AI Advisors Group. Built with Purpose.</p>
     </footer>
-
 </body>
 </html>
