@@ -1,0 +1,7 @@
+{
+  "name": "clv-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "postmark": "^4.0.2"
+  }
