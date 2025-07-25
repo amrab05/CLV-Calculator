@@ -3,78 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLV & Churn Impact Calculator - AI Advisors Group</title>
+    <title>CLV & Churn Impact Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.ico">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <p>First, calculate your base CLV. Then, use the Churn Impact Simulator to see the financial cost of inaction.</p>
-        </div>
+        <h1>How Much Revenue is a Single Complaint Putting at Risk?</h1>
+        <p>First, calculate your base CLV. Then, use the Churn Impact Simulator to see the financial cost of inaction.</p>
 
-        <form id="clv-form">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="avg-purchase-value">Avg. Purchase Value ($)</label>
-                    <input type="number" id="avg-purchase-value" value="500" required>
+        <div class="calculator-section">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="avgPurchaseValue">Avg. Purchase Value ($)</label>
+                    <input type="number" id="avgPurchaseValue" value="500">
                 </div>
-                <div class="form-group">
-                    <label for="purchase-frequency">Purchases Per Year</label>
-                    <input type="number" id="purchase-frequency" value="12" required>
+                <div class="input-field">
+                    <label for="purchasesPerYear">Purchases Per Year</label>
+                    <input type="number" id="purchasesPerYear" value="12">
                 </div>
-                <div class="form-group">
-                    <label for="customer-lifespan">Customer Lifespan (Years)</label>
-                    <input type="number" id="customer-lifespan" value="5" required>
+                <div class="input-field">
+                    <label for="lifespan">Customer Lifespan (Years)</label>
+                    <input type="number" id="lifespan" value="5">
                 </div>
             </div>
-
-            <div class="form-group churn-group">
-                <label for="churn-risk-select">Churn Impact Simulator</label>
-                <select id="churn-risk-select">
-                    <option value="0.10">Low Risk (e.g., Minor UI bug, slow social media reply)</option>
+            <div class="input-field" style="margin-top: 20px;">
+                <label for="churnRisk">Churn Impact Simulator</label>
+                <select id="churnRisk">
+                    <option value="0.10">Low Risk (e.g., Minor inconvenience)</option>
                     <option value="0.25" selected>Medium Risk (e.g., Billing error, slow reply)</option>
-                    <option value="0.50">High Risk (e.g., Failed delivery, public complaint)</option>
-                    <option value="0.80">Critical Risk (e.g., Data breach, unresolved critical failure)</option>
+                    <option value="0.50">High Risk (e.g., Product failure, rude service)</option>
+                    <option value="0.75">Critical Risk (e.g., Data breach, public safety issue)</option>
                 </select>
             </div>
-            <button type="submit" class="calculate-button">Calculate Financial Impact</button>
-        </form>
-
-        <div id="results-container" class="results-container" style="display: none;">
-            <div class="result-box">
-                <p>ORIGINAL CLV</p>
-                <h2 id="original-clv-result">$0.00</h2>
-            </div>
-            <div class="result-box value-at-risk">
-                <p>VALUE AT RISK</p>
-                <h2 id="value-lost-result">$0.00</h2>
-            </div>
-            <div class="result-box">
-                <p>ADJUSTED CLV</p>
-                <h2 id="adjusted-clv-result">$0.00</h2>
-            </div>
+            <button onclick="calculateImpact()">Calculate Financial Impact</button>
         </div>
 
-        <div class="explanation-box">
-            <h3>The Secret Sauce: Understanding "Value at Risk"</h3>
-            <p>The "Value at Risk" isn’t just a number—it’s the financial embodiment of a single negative customer experience. It represents the potential loss if this customer, and others like them, churn due to unresolved issues.</p>
-            <p>This embodies our <strong>Anti-Churn Doctrine</strong>: identifying and fixing the root cause of a single complaint prevents a cascade of future losses. Don’t guess what the problem is. Use our AI-powered tool to find out exactly why customers are unhappy.</p>
-            <a href="https://compass.aiadvisorsgroup.co/" class="next-step-link" target="_blank" rel="noopener noreferrer">Take the next step: Analyze your customer feedback with Compass-AI →</a>
+        <div class="results">
+            <div class="result-item">
+                <h4>Original CLV</h4>
+                <p id="originalClv">$0.00</p>
+            </div>
+            <div class="result-item">
+                <h4>Value at Risk</h4>
+                <p id="valueAtRisk">$0.00</p>
+            </div>
+            <div class="result-item">
+                <h4>Adjusted CLV</h4>
+                <p id="adjustedClv">$0.00</p>
+            </div>
         </div>
         
-        <div id="lead-capture-section" style="display: none;">
-            <h3 class="lead-gen-title">Get Your Full Churn Impact Report</h3>
-            <form id="email-report-form">
-                <div class="form-group">
-                    <input type="text" id="lead-name-input" placeholder="First Name (Optional)">
-                </div>
-                <div class="form-group">
-                    <input type="email" id="lead-email-input" placeholder="Your Email (Required)" required>
-                </div>
-                <button type="submit" id="send-report-button" class="send-report-button">Send My Report →</button>
+        <!-- === NEW STRATEGIC HOOK SECTION === -->
+        <div class="explanation-section">
+            <h3>The Secret Sauce: Understanding "Value at Risk"</h3>
+            <p>The "Value at Risk" isn't just a number—it's the financial embodiment of a single negative customer experience. It represents the potential loss if this customer, and others like them, churn due to unresolved issues.</p>
+            <p>This embodies our <strong>Anti-Churn Doctrine:</strong> identifying and fixing the root cause of a single complaint prevents a cascade of future losses. Don't guess what the problem is. Use our AI-powered tool to find out exactly why customers are unhappy.</p>
+            <p><strong><a href="https://compass.aiadvisorsgroup.co/" target="_blank" rel="noopener noreferrer">Take the next step: Analyze your customer feedback with Compass-AI →</a></strong></p>
+        </div>
+        <!-- === END OF NEW SECTION === -->
+
+        <div class="report-section">
+            <h3>Get Your Full Churn Impact Report</h3>
+            <form id="reportForm">
+                <input type="text" id="firstName" placeholder="First Name (Optional)" class="form-element">
+                <input type="email" id="email" placeholder="Your Email (Required)" required class="form-element">
+                <button type="submit" class="form-element">Send My Report →</button>
             </form>
         </div>
+
     </div>
     <script src="script.js"></script>
 </body>
