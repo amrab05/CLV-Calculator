@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLV Calculator - AI Advisors Group</title>
-  <meta name="description" content="Calculate the real financial impact of customer churn on your business.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLV & Churn Impact Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>How Much Revenue is a Single Complaint Putting at Risk?</h1>
+        <p>First, calculate your base CLV. Then, use the Churn Impact Simulator to see the financial cost of inaction.</p>
 
-  <main>
-    <h1>The Churn Impact Simulator</h1>
-    <p class="description">Visualize the hidden cost of customer churn before it's too late.</p>
+        <div class="calculator-section">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="avgPurchaseValue">Avg. Purchase Value ($)</label>
+                    <input type="number" id="avgPurchaseValue" value="500">
+                </div>
+                <div class="input-field">
+                    <label for="purchasesPerYear">Purchases Per Year</label>
+                    <input type="number" id="purchasesPerYear" value="12">
+                </div>
+                <div class="input-field">
+                    <label for="lifespan">Customer Lifespan (Years)</label>
+                    <input type="number" id="lifespan" value="5">
+                </div>
+            </div>
+            <div class="input-field" style="margin-top: 20px;">
+                <label for="churnRisk">Churn Impact Simulator</label>
+                <select id="churnRisk">
+                    <option value="0.10">Low Risk (e.g., Minor inconvenience)</option>
+                    <option value="0.25" selected>Medium Risk (e.g., Billing error, slow reply)</option>
+                    <option value="0.50">High Risk (e.g., Product failure, rude service)</option>
+                    <option value="0.75">Critical Risk (e.g., Data breach, public safety issue)</option>
+                </select>
+            </div>
+            <button onclick="calculateImpact()">Calculate Financial Impact</button>
+        </div>
 
-    <div class="calculator">
-      <div class="slider-group">
-        <label for="revenue">Monthly Recurring Revenue (MRR): $<span id="revenueValue">100,000</span></label>
-        <input type="range" id="revenue" class="slider" min="10000" max="1000000" step="10000" value="100000">
-      </div>
-      <div class="slider-group">
-        <label for="churn">Monthly Churn Rate: <span id="churnValue">2.5</span>%</label>
-        <input type="range" id="churn" class="slider" min="0.5" max="10" step="0.1" value="2.5">
-      </div>
+        <div class="results">
+            <div class="result-item">
+                <h4>Original CLV</h4>
+                <p id="originalClv">$0.00</p>
+            </div>
+            <div class="result-item">
+                <h4>Value at Risk</h4>
+                <p id="valueAtRisk">$0.00</p>
+            </div>
+            <div class="result-item">
+                <h4>Adjusted CLV</h4>
+                <p id="adjustedClv">$0.00</p>
+            </div>
+        </div>
+        
+        <!-- === NEW STRATEGIC HOOK SECTION === -->
+        <div class="explanation-section">
+            <h3>The Secret Sauce: Understanding "Value at Risk"</h3>
+            <p>The "Value at Risk" isn't just a number—it's the financial embodiment of a single negative customer experience. It represents the potential loss if this customer, and others like them, churn due to unresolved issues.</p>
+            <p>This embodies our <strong>Anti-Churn Doctrine:</strong> identifying and fixing the root cause of a single complaint prevents a cascade of future losses. Don't guess what the problem is. Use our AI-powered tool to find out exactly why customers are unhappy.</p>
+            <p><strong><a href="https://compass.aiadvisorsgroup.co/" target="_blank" rel="noopener noreferrer">Take the next step: Analyze your customer feedback with Compass-AI →</a></strong></p>
+        </div>
+        <!-- === END OF NEW SECTION === -->
+
+        <div class="report-section">
+            <h3>Get Your Full Churn Impact Report</h3>
+            <form id="reportForm">
+                <input type="text" id="firstName" placeholder="First Name (Optional)" class="form-element">
+                <input type="email" id="email" placeholder="Your Email (Required)" required class="form-element">
+                <button type="submit" class="form-element">Send My Report →</button>
+            </form>
+        </div>
+
     </div>
-
-    <div class="results">
-      <h2>Annual Revenue At Risk: <span class="text-blue-400" id="annualLoss">$32,075.44</span></h2>
-      <h3>Risk Level: <span id="riskLevel">Moderate Risk</span></h3>
-    </div>
-
-    <!-- --- UX UPGRADE & THE HOOK --- -->
-    <div class="explanation-section">
-      <h3>What is This? The "Anti-Churn Doctrine" in Action</h3>
-      <p>This simulator reveals the compounding financial damage caused by customer churn. But more importantly, it shows you the financial cost of missing the <strong>"Golden Window"</strong>—the critical time to respond to a customer complaint before it becomes a churn statistic.</p>
-      <p>A "High Risk" level means the Golden Window is closing on your customers too often. Don't just watch the revenue disappear. Use our AI-powered tool, <strong><a href="https://compass.aiadvisorsgroup.co/" target="_blank" rel="noopener noreferrer">Compass-AI</a></strong>, to detect these warnings instantly and give your team the power to act.</p>
-    </div>
-    <!-- --- END UX UPGRADE --- -->
-
-    <div class="lead-gen">
-      <h3>Get Your Personalized Churn Report</h3>
-      <form id="report-form">
-        <input type="text" id="firstName" placeholder="First Name" required class="input-field">
-        <input type="email" id="email" placeholder="Your Business Email" required class="input-field">
-        <button type="submit" class="button">Send My Report</button>
-      </form>
-      <p class="status" id="statusMessage"></p>
- 
+    <script src="script.js"></script>
+</body>
+</html>
