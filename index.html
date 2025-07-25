@@ -1,75 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLV & Churn Impact Calculator - AI Advisors Group</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLV Calculator - AI Advisors Group</title>
+  <meta name="description" content="Calculate the real financial impact of customer churn on your business.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
-    <header>
-        <div class="logo-container-left"><span class="logo-text-main">CLV Calculator™</span></div>
-        <div class="branding-container-right"><span class="logo-text-branding">Powered by AI Advisors Group™</span></div>
-    </header>
-    <main>
-        <section id="calculator-section">
-            <h1>How Much Revenue is a Single Complaint Putting at Risk?</h1>
-            <p class="subtitle">First, calculate your base CLV. Then, use the Churn Impact Simulator to see the financial cost of inaction.</p>
-            <form id="clv-form">
-                <div class="input-grid">
-                    <div class="input-group">
-                        <label for="avg-purchase-value">Avg. Purchase Value ($)</label>
-                        <input type="number" id="avg-purchase-value" placeholder="50" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="purchase-frequency">Purchases Per Year</label>
-                        <input type="number" id="purchase-frequency" placeholder="4" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="customer-lifespan">Customer Lifespan (Years)</label>
-                        <input type="number" id="customer-lifespan" placeholder="5" required>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label for="churn-risk-select">Churn Impact Simulator</label>
-                    <select id="churn-risk-select">
-                        <option value="0">No Risk - Calculate Base CLV</option>
-                        <option value="0.05">Low Risk (e.g., Minor issue, fast reply)</option>
-                        <option value="0.25">Medium Risk (e.g., Billing error, slow reply)</option>
-                        <option value="0.50">High Risk (e.g., Unresolved complaint)</option>
-                    </select>
-                </div>
-                <button type="submit" id="calculate-btn">Calculate Financial Impact</button>
-            </form>
-            <div id="results-container" style="display: none;">
-                <div class="results-grid">
-                    <div class="result-box">
-                        <h2>Original CLV</h2>
-                        <p id="original-clv-result" class="original-value">$0.00</p>
-                    </div>
-                    <div class="result-box">
-                        <h2>Value at Risk</h2>
-                        <p id="value-lost-result" class="lost-value">$0.00</p>
-                    </div>
-                    <div class="result-box">
-                        <h2>Adjusted CLV</h2>
-                        <p id="adjusted-clv-result" class="adjusted-value">$0.00</p>
-                    </div>
-                </div>
-            </div>
-            <div id="lead-capture-section" style="display: none;">
-                <h3>Get Your Full Churn Impact Report</h3>
-                <form id="email-report-form">
-                    <input type="text" id="lead-name-input" name="name" autocomplete="given-name" placeholder="First Name (Optional)">
-                    <input type="email" id="lead-email-input" name="email" required autocomplete="email" placeholder="Your Email (Required)">
-                    <button type="submit" id="send-report-button">Send My Report →</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 AI Advisors Group. Built with Purpose.</p>
-    </footer>
+
+  <main>
+    <h1>The Churn Impact Simulator</h1>
+    <p class="description">Visualize the hidden cost of customer churn before it's too late.</p>
+
+    <div class="calculator">
+      <div class="slider-group">
+        <label for="revenue">Monthly Recurring Revenue (MRR): $<span id="revenueValue">100,000</span></label>
+        <input type="range" id="revenue" class="slider" min="10000" max="1000000" step="10000" value="100000">
+      </div>
+      <div class="slider-group">
+        <label for="churn">Monthly Churn Rate: <span id="churnValue">2.5</span>%</label>
+        <input type="range" id="churn" class="slider" min="0.5" max="10" step="0.1" value="2.5">
+      </div>
+    </div>
+
+    <div class="results">
+      <h2>Annual Revenue At Risk: <span class="text-blue-400" id="annualLoss">$32,075.44</span></h2>
+      <h3>Risk Level: <span id="riskLevel">Moderate Risk</span></h3>
+    </div>
+
+    <!-- --- UX UPGRADE & THE HOOK --- -->
+    <div class="explanation-section">
+      <h3>What is This? The "Anti-Churn Doctrine" in Action</h3>
+      <p>This simulator reveals the compounding financial damage caused by customer churn. But more importantly, it shows you the financial cost of missing the <strong>"Golden Window"</strong>—the critical time to respond to a customer complaint before it becomes a churn statistic.</p>
+      <p>A "High Risk" level means the Golden Window is closing on your customers too often. Don't just watch the revenue disappear. Use our AI-powered tool, <strong><a href="https://compass.aiadvisorsgroup.co/" target="_blank" rel="noopener noreferrer">Compass-AI</a></strong>, to detect these warnings instantly and give your team the power to act.</p>
+    </div>
+    <!-- --- END UX UPGRADE --- -->
+
+    <div class="lead-gen">
+      <h3>Get Your Personalized Churn Report</h3>
+      <form id="report-form">
+        <input type="text" id="firstName" placeholder="First Name" required class="input-field">
+        <input type="email" id="email" placeholder="Your Business Email" required class="input-field">
+        <button type="submit" class="button">Send My Report</button>
+      </form>
+      <p class="status" id="statusMessage"></p>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
