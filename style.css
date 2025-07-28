@@ -1,153 +1,82 @@
+/* ✅ FINAL VERSION of style.css for CLV Calculator */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9fb;
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 0;
+    color: #333;
 }
 
 .container {
-    background: #fff;
+    max-width: 600px;
+    margin: 40px auto;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+h1, h2 {
+    color: #4c3c7a;
+    margin-top: 0;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
     width: 100%;
-    max-width: 800px;
-    text-align: center;
-}
-
-h1 {
-    color: #000000 !important; /* Enforce black header */
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-h3 {
-    color: #212529;
-    margin-top: 30px;
-}
-
-.calculator-section,
-.report-section,
-.explanation-section {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.input-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    gap: 20px;
-}
-
-.input-field {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    flex: 1;
-}
-
-input[type="number"],
-select {
     padding: 10px;
-    border-radius: 4px;
+    margin-bottom: 16px;
     border: 1px solid #ccc;
-    margin-top: 5px;
+    border-radius: 6px;
     font-size: 16px;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #4c3c7a;
     color: white;
-    padding: 12px 25px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 6px;
     font-size: 16px;
-    transition: background-color 0.2s ease;
-    margin-top: 25px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #372a59;
 }
 
-.results {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #e9ecef;
-    border-radius: 8px;
+.result {
     margin-top: 20px;
-    text-align: center;
+    padding: 15px;
+    background-color: #f0f4f8;
+    border-left: 6px solid #4c3c7a;
+    border-radius: 6px;
 }
 
-.result-item h4 {
-    margin: 0 0 10px 0;
-    color: #495057;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-.result-item p {
-    margin: 0;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-#originalClv { color: #28a745; }
-#valueAtRisk { color: #dc3545; }
-#adjustedClv { color: #ffc107; }
-
-.report-section {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-    margin-top: 30px;
-}
-
-/* Form Styling */
-.form-element {
-    display: block;
-    box-sizing: border-box;
-    width: 90%;
-    max-width: 450px;
-    height: 50px;
-    margin: 0 auto 15px auto;
-    padding: 0 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-}
-
-.form-element[type="text"],
-.form-element[type="email"] {
-    border: 1px solid #ccc;
+.result p {
+    margin: 8px 0;
+    font-size: 16px;
     color: #333;
+    font-weight: 500;
 }
 
-.form-element[type="submit"] {
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    background-color: #28a745;
-    transition: background-color 0.2s ease;
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 40px;
 }
 
-.form-element[type="submit"]:hover {
-    background-color: #218838;
-}
-
-/* Link Consistency */
-a {
-    color: #0056b3;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}

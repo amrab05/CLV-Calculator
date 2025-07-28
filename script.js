@@ -1,23 +1,46 @@
-function calculateImpact() {
-    const avgPurchaseValue = parseFloat(document.getElementById("avgPurchaseValue").value);
-    const purchasesPerYear = parseFloat(document.getElementById("purchasesPerYear").value);
-    const lifespan = parseFloat(document.getElementById("lifespan").value);
-    const churnRisk = parseFloat(document.getElementById("churnRisk").value);
+// ✅ Updated script.js with proper field names matching send-clv-report.js expectations
 
-    const originalClv = avgPurchaseValue * purchasesPerYear * lifespan;
-    const valueAtRisk = originalClv * churnRisk;
-    const adjustedClv = originalClv - valueAtRisk;
+document.getElementById("reportForm").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-    document.getElementById("originalClv").textContent = formatCurrency(originalClv);
-    document.getElementById("valueAtRisk").textContent = formatCurrency(valueAtRisk);
-    document.getElementById("adjustedClv").textContent = formatCurrency(adjustedClv);
-}
+    const leadName = document.getElementById("firstName").value.trim();
+    const leadEmail = document.getElementById("email").value.trim();
 
-function formatCurrency(value) {
-    return value.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    });
-}
+    // These are the calculated report values pulled from DOM
+    const originalClv = document.getElementById("originalClv").innerText;
+    const valueLost = document.getElementById("valueLost").innerText;
+    const adjustedClv = document.getElementById("adjustedClv").innerText;
+
+    if (!leadEmail || !originalClv || !valueLost || !adjustedClv) {
+        alert("Please ensure all report values and your email are filled.");
+        return;
+    }
+
+    fetch("/api/send-clv-report", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            leadName,
+            leadEmail,
+            reportData: {
+                originalClv,
+                valueLost,
+                adjustedClv
+            } Oh
+        })
+    })
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok.");
+            return response.json();
+        })
+        .then(data => {
+            alert("✅ Your CLV report has been sent! Please check your inbox.");
+            document.getElementById("reportForm").reset();
+        })
+        .catch(error => {
+            console.error("Error sending report:", error);
+            alert("⚠️ Something went wrong. Please try again later.");
+        });
+});
