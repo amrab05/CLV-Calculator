@@ -1,18 +1,16 @@
-// ✅ Updated script.js with proper field names matching send-clv-report.js expectations
+// ✅ FINAL VERSION of script.js for CLV Calculator
 
 document.getElementById("reportForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const leadName = document.getElementById("firstName").value.trim();
     const leadEmail = document.getElementById("email").value.trim();
+    const originalClv = document.getElementById("originalClv").textContent;
+    const valueLost = document.getElementById("valueLost").textContent;
+    const adjustedClv = document.getElementById("adjustedClv").textContent;
 
-    // These are the calculated report values pulled from DOM
-    const originalClv = document.getElementById("originalClv").innerText;
-    const valueLost = document.getElementById("valueLost").innerText;
-    const adjustedClv = document.getElementById("adjustedClv").innerText;
-
-    if (!leadEmail || !originalClv || !valueLost || !adjustedClv) {
-        alert("Please ensure all report values and your email are filled.");
+    if (!leadEmail) {
+        alert("Please enter your email address.");
         return;
     }
 
@@ -28,7 +26,7 @@ document.getElementById("reportForm").addEventListener("submit", function (event
                 originalClv,
                 valueLost,
                 adjustedClv
-            } Oh
+            }
         })
     })
         .then(response => {
