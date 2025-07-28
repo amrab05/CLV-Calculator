@@ -1,205 +1,178 @@
-:root {
-  --bg-main: #f4f7f9;
-  --bg-container: #ffffff;
-  --text-dark: #2d3748;
-  --text-light: #718096;
-  --accent-green: #38a169;
-  --accent-green-hover: #2f855a;
-  --logo-purple: #4c3c7a;
-  --border-color: #e2e8f0;
-  --error-red: #e53e3e;
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg-main);
-  color: var(--text-dark);
-  line-height: 1.6;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
-  background-color: var(--bg-container);
-  padding: 2.5rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  width: 100%;
-  max-width: 800px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--logo-purple);
-  text-align: center;
-  margin-bottom: 0.5rem;
+    color: #0056b3;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 10px;
 }
 
-.subtitle {
-  text-align: center;
-  color: var(--text-light);
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
+p {
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 15px;
 }
 
-h2, h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
+.calculator-section,
+.report-section,
+.explanation-section {
+    margin-bottom: 30px;
 }
 
 .input-group {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
 }
 
 .input-field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex: 1;
 }
 
-.input-field label {
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+label {
+    font-weight: bold;
+    font-size: 14px;
 }
 
 input[type="number"],
 select {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  background-color: #f7fafc;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--accent-green);
-  color: #fff;
-  font-size: 1.125rem;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-top: 1.5rem;
-  width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    margin-top: 25px;
 }
 
 button:hover {
-  background-color: var(--accent-green-hover);
+    background-color: #218838;
 }
 
 .results {
-  display: flex;
-  justify-content: space-around;
-  background-color: #f7fafc;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
 .result-item {
-  text-align: center;
+    text-align: center;
 }
 
 .result-item h4 {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
+    margin: 0 0 10px 0;
+    color: #495057;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .result-item p {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 #originalClv {
-  color: var(--accent-green);
+    color: #28a745;
 }
 
 #valueAtRisk {
-  color: var(--error-red);
+    color: #dc3545;
 }
 
 #adjustedClv {
-  color: #d69e2e;
-}
-
-.explanation-section {
-  margin-top: 2.5rem;
-}
-
-.explanation-section h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--logo-purple);
-  margin-bottom: 0.75rem;
-}
-
-.explanation-section p {
-  color: var(--text-dark);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.explanation-section a {
-  color: var(--accent-green);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.explanation-section a:hover {
-  text-decoration: underline;
+    color: #ffc107;
 }
 
 .report-section {
-  border-top: 1px dashed var(--border-color);
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 30px;
 }
 
+/* === FORM STYLES === */
+
 .form-element {
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto 1rem auto;
-  padding: 0.75rem;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  font-size: 1rem;
-  background-color: #f7fafc;
+    display: block;
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 450px;
+    height: 50px;
+    margin: 0 auto 15px auto;
+    padding: 0 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.form-element[type="text"],
+.form-element[type="email"] {
+    border: 1px solid #ccc;
+    color: #333;
 }
 
 .form-element[type="submit"] {
-  background-color: var(--accent-green);
-  color: white;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    transition: background-color 0.2s ease;
 }
 
 .form-element[type="submit"]:hover {
-  background-color: var(--accent-green-hover);
+    background-color: #218838;
+}
+
+/* Explanation Section */
+
+.explanation-section h3 {
+    font-size: 20px;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.explanation-section p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
 }
