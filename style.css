@@ -1,159 +1,205 @@
+:root {
+  --bg-main: #f4f7f9;
+  --bg-container: #ffffff;
+  --text-dark: #2d3748;
+  --text-light: #718096;
+  --accent-green: #38a169;
+  --accent-green-hover: #2f855a;
+  --logo-purple: #4c3c7a;
+  --border-color: #e2e8f0;
+  --error-red: #e53e3e;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
+  background-color: var(--bg-container);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 800px;
 }
 
 h1 {
-    color: #0056b3;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--logo-purple);
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-.calculator-section, .report-section {
-    margin-bottom: 30px;
+.subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+h2, h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
 }
 
 .input-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-field {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    flex: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-input[type="number"], select {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
+.input-field label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+input[type="number"],
+select {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: #f7fafc;
 }
 
 button {
-    background-color: #28a745;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-green);
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 button:hover {
-    background-color: #218838;
+  background-color: var(--accent-green-hover);
 }
 
 .results {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #e9ecef;
-    border-radius: 8px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f7fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
 }
 
 .result-item {
-    text-align: center;
+  text-align: center;
 }
 
 .result-item h4 {
-    margin: 0 0 10px 0;
-    color: #495057;
-    font-size: 14px;
-    text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .result-item p {
-    margin: 0;
-    font-size: 28px;
-    font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-#originalClv { color: #28a745; }
-#valueAtRisk { color: #dc3545; }
-#adjustedClv { color: #ffc107; }
-
-.report-section {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-    margin-top: 30px;
+#originalClv {
+  color: var(--accent-green);
 }
 
-/* === FORM STYLES === */
-.form-element {
-  display: block;
-  box-sizing: border-box;
-  width: 90%;
-  max-width: 450px;
-  height: 50px;
-  margin: 0 auto 15px auto;
-  padding: 0 15px;
-  font-size: 1rem;
-  border-radius: 8px;
+#valueAtRisk {
+  color: var(--error-red);
 }
 
-.form-element[type="text"], 
-.form-element[type="email"] {
-  border: 1px solid #ccc;
-  color: #333;
+#adjustedClv {
+  color: #d69e2e;
 }
-
-.form-element[type="submit"] {
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-  background-color: #28a745;
-  transition: background-color 0.2s ease;
-}
-
-.form-element[type="submit"]:hover {
-    background-color: #218838;
-}
-
-/* === NEW EXPLANATION SECTION STYLES === */
 
 .explanation-section {
-    text-align: left;
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-left: 5px solid #0056b3;
+  margin-top: 2.5rem;
 }
 
 .explanation-section h3 {
-    margin-top: 0;
-    color: #0056b3;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--logo-purple);
+  margin-bottom: 0.75rem;
+}
+
+.explanation-section p {
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .explanation-section a {
-    color: #28a745; /* Green link to match our button */
-    font-weight: bold;
-    text-decoration: none;
+  color: var(--accent-green);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .explanation-section a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.report-section {
+  border-top: 1px dashed var(--border-color);
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.form-element {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 1rem auto;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  background-color: #f7fafc;
+}
+
+.form-element[type="submit"] {
+  background-color: var(--accent-green);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.form-element[type="submit"]:hover {
+  background-color: var(--accent-green-hover);
 }
